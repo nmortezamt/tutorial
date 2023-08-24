@@ -1,6 +1,14 @@
 {
     "manage_categories":"مدیریت دسته بندی",
     "manage_role_permission":"مدیریت نقش کاربری",
-    "teach":"تدریس "
+    "teach":"تدریس ",
+    "manage_course":"مدیریت دوره",
+    "super_admin":"مدیر کل",
+    "manage_own_course":"مدیریت دوره های خود",
+    "manage_users":"مدیریت کاربران",
+    "manage_payment":"مدیریت تراکنش ها",
+    "manage_settlements":"مدیریت تسویه حساب ها",
+    "manage_discount":"مدیریت تخفیف ها",
+    "student":"دانشجو"
 
 }

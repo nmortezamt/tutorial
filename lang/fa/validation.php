@@ -194,7 +194,8 @@ return [
         'password_confirmation' => 'تاییدیه رمز عبور',
         'title'=>'عنوان',
         'slug'=>'نام انگلیسی',
-        'parent_id'=>'دسته پدر'
+        'parent_id'=>'دسته پدر',
+        'role'=>'نقش کاربری'
     ],
 
 ];

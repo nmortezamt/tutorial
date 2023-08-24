@@ -25,19 +25,6 @@
 
                 </div>
 
-                <div class="d-flex multi-text">
-                    <x-input type="text" name="discount" placeholder="قیمت تخفیف خورده" class="text-left" value="{{ $course->discount }}"/>
-
-                    {{-- <ul class="tags mr-1">
-                        <li class="tagAdd taglist">
-                            <input type="text" name="tags" id="search-field" placeholder="برچسب">
-                        </li>
-                    </ul>
-                    <br>
-                    <x-validation-error field="tags"/> --}}
-
-                </div>
-
                 <x-select name="teacher_id" required>
                     <option value="">انتخاب مدرس دوره</option>
                     @foreach ($teachers as $teacher)
@@ -72,7 +59,7 @@
                 <x-file placeholder="آپلود بنر دوره" name="image" :value="$course->banner" accept="image/*"/>
 
                 <x-text-area placeholder="توضیحات دوره" name="body" value="{{ $course->body }}"/>
-                <button class="btn btn-webamooz_net">ایجاد دوره</button>
+                <button class="btn btn-webamooz_net">ویرایش دوره</button>
             </form>
 
         </div>

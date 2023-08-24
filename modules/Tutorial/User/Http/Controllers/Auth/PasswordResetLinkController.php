@@ -34,8 +34,8 @@ class PasswordResetLinkController extends Controller
         $user = $userRepo->findByEmail($request->email);
         if(! $user)
         return back()->withErrors(['emailNotFound'=>'کاربری با این ایمیل یافت نشد']);
-
-        if($user && ! VerifyCodeService::has($user->id)){
+        VerifyCodeService::delete($user->id);
+        if(! VerifyCodeService::has($user->id)){
             $user->sendResetPasswordRequestNotification();
         }
         return view('User::auth.enter-verify-code-form',compact('user'));

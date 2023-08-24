@@ -23,7 +23,7 @@ class RoleUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required','min:3','unique:roles,name,'.request()->route('role_permission')],
-            'permissions' => ['required','array','min:1']
+            'permissions' => ['nullable','array','min:1']
         ];
     }
 }

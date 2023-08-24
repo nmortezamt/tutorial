@@ -24,9 +24,6 @@
 
                 </div>
 
-                <div class="d-flex multi-text">
-                    <x-input type="text" name="discount" placeholder="قیمت تخفیف خورده" class="text-left" />
-
                     {{-- <ul class="tags mr-1">
                         <li class="tagAdd taglist">
                             <input type="text" name="tags" id="search-field" placeholder="برچسب">

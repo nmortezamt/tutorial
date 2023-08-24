@@ -922,7 +922,26 @@ textarea {
     max-height: 300px;
     overflow-x: hidden;
     text-align: center;
+    width: 100%;
 }
+
+.dropdown__notification .content__notification ul{
+    text-align: right;
+}
+
+.dropdown__notification .content__notification ul li{
+    border-bottom: 0.3px solid #333;
+    margin-top: 10px;
+}
+
+.dropdown__notification .content__notification ul li:first-child{
+    margin-top: 0;
+}
+
+.dropdown__notification .content__notification ul li:last-child{
+    border-bottom: none;
+}
+
 
 .w-100-10 {
     width: calc(100% + 10px);

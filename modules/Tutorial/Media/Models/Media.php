@@ -14,7 +14,7 @@ class Media extends Model
 
     public function getThumbAttribute()
     {
-        return '/storage/' . $this->files[300];
+        return MediaFileService::thumb($this);
     }
 
     protected static function booted()
@@ -22,5 +22,10 @@ class Media extends Model
         static::deleting(function ($media) {
             MediaFileService::delete($media);
         });
+    }
+
+    public function getUrl($original = "original")
+    {
+        return "/storage/" . $this->files[$original];
     }
 }

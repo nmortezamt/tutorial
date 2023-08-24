@@ -1,18 +1,33 @@
 <div class="header d-flex item-center bg-white width-100 border-bottom padding-12-30">
     <div class="header__right d-flex flex-grow-1 item-center">
         <span class="bars"></span>
-        <a class="header__logo" href="https://webamooz.net"></a>
+        <a class="header__logo" href="/"></a>
     </div>
     <div class="header__left d-flex flex-end item-center margin-top-2">
-        <span class="account-balance font-size-12">موجودی : 2500,000 تومان</span>
+        @can(\Tutorial\RolePermissions\Models\Permission::PERMISSION_MANAGE_TEACH)
+            <span class="account-balance font-size-12">موجودی : {{ number_format(auth()->user()->balance) }} تومان</span>
+        @endcan
         <div class="notification margin-15">
-            <a class="notification__icon"></a>
+            <a class="notification__icon {{ count($notifications) ? 'text-error' : ''}}"></a>
             <div class="dropdown__notification">
                 <div class="content__notification">
-                    <span class="font-size-13">موردی برای نمایش وجود ندارد</span>
+                    @if (count($notifications))
+                        <ul>
+                            @foreach ($notifications as $notification)
+                            <li><a href="{{ $notification->data['url'] }}">{{ $notification->data['message'] }}</a></li>
+                            @endforeach
+                        </ul>
+                        <a href="{{ route('notifications.markAllAsRead') }}" class="text-success font-size-11">علامت زدن همه به عنوان خوانده شده</a>
+                    @else
+                        <span class="font-size-13">موردی برای نمایش وجود ندارد</span>
+                    @endif
                 </div>
             </div>
         </div>
-        <a href="{{ url()->previous() }}" class="logout" title="خروج"></a>
+        <form action="{{ route('logout') }}" method="post" id="logout">
+            @csrf
+            <a onclick="event.preventDefault(); document.getElementById('logout').submit()" class="logout"
+                title="خروج"></a>
+        </form>
     </div>
 </div>

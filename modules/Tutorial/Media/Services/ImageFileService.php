@@ -4,18 +4,16 @@ namespace Tutorial\Media\Services;
 
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Tutorial\Media\Contracts\FileServiceContract;
 
-class ImageFileService
+class ImageFileService extends DefaultFileService implements FileServiceContract
 {
     protected static $sizes = ['300', '600','450'];
-    public static function upload($file)
+    public static function upload($file,$filename,$dir):array
     {
-        $filename = uniqid();
-        $extension = $file->getClientOriginalExtension();
-        $dir = 'app/public/';
-        $file->move(storage_path($dir), $filename . '.' . $extension);
-        $path = $dir. $filename . '.' . $extension;
-        return self::resize(storage_path($path), $dir, $extension, $filename);
+        Storage::putFileAs($dir,$file, $filename . '.' . $file->getClientOriginalExtension());
+        $path = $dir. $filename . '.' . $file->getClientOriginalExtension();
+        return self::resize(Storage::path($path), $dir, $file->getClientOriginalExtension(), $filename);
     }
 
     private static function resize($img, $dir, $extension, $filename)
@@ -26,15 +24,19 @@ class ImageFileService
             $imgs[$size] = $filename . '_' . $size .'.'. $extension;
             $image->resize($size, null, function ($aspect) {
                 $aspect->aspectRatio();
-            })->save(storage_path($dir) . $filename . '_' . $size .'.'. $extension);
+            })->save(Storage::path($dir) . $filename . '_' . $size .'.'. $extension);
         }
         return $imgs;
     }
 
-    public static function delete($media)
+    public static function thumb($media)
     {
-        foreach($media->files as $file){
-            Storage::delete('public\\'.$file);
-        }
+        return '/storage/' . $media->files[300];
     }
+
+    public static function getFileName()
+    {
+        return (static::$media->is_private ? 'private/' : 'public/') . static::$media->files['original'];
+    }
+
 }

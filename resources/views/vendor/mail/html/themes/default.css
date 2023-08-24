@@ -38,6 +38,7 @@ a img {
 /* Typography */
 
 h1 {
+    direction: rtl;
     color: #3d4852;
     font-size: 18px;
     font-weight: bold;
@@ -60,6 +61,7 @@ h3 {
 }
 
 p {
+    direction: rtl;
     font-size: 16px;
     line-height: 1.5em;
     margin-top: 0;

@@ -1,0 +1,16 @@
+{
+    "name":"tutorial/common",
+    "autoload":{
+        "psr-4":{
+            "Tutorial\\Common\\": "src"
+        },
+        "files":["src/helpers.php"]
+    },
+    "extra":{
+        "laravel":{
+            "providers":[
+                "\\Tutorial\\Common\\Providers\\CommonServiceProvider"
+            ]
+        }
+    }
+}

@@ -26,9 +26,24 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./modules/Tutorial/Category/Tests/Feature</directory>
         </testsuite>
+        <!--  -->
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./modules/Tutorial/Course/Tests/Feature</directory>
+        </testsuite>
+        <!--  -->
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./modules/Tutorial/RolePermissions/Tests/Feature</directory>
+        </testsuite>
 
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./modules/Tutorial/Ticket/Tests/Feature</directory>
+        </testsuite>
 
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./modules/Tutorial/Comment/Tests/Feature</directory>
+        </testsuite>
     </testsuites>
+
     <source>
         <include>
             <directory suffix=".php">./app</directory>

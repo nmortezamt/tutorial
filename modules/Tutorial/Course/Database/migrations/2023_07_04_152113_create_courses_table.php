@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('slug');
             $table->string('price',10);
             $table->string('teacher_percent',5);
-            $table->string('discount',10)->nullable();
             $table->float('priority')->nullable();
             $table->enum('type',Course::$types);
             $table->enum('status',Course::$statuses);

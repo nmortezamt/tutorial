@@ -5,6 +5,7 @@ namespace Tutorial\User\Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Tutorial\RolePermissions\Database\seeders\RolePermissionTableSeeder;
 use Tutorial\User\Models\User;
 use Tutorial\User\Services\VerifyCodeService;
 
@@ -25,7 +26,7 @@ class RegistrationTest extends TestCase
     {
         $response = $this->RegisterNewUser();
 
-        $response->assertRedirect(route('dashboard'));
+        $response->assertRedirect(route('dashboard.index'));
         $this->assertCount(1 , User::all());
     }
 
@@ -33,8 +34,8 @@ class RegistrationTest extends TestCase
     {
         $this->RegisterNewUser();
 
-        $response = $this->get(route('dashboard'));
-        // $response->assertRedirect(route('verification.notice'));
+        $response = $this->get(route('dashboard.index'));
+        $response->assertRedirect(route('verification.notice'));
     }
 
     public function test_user_can_verify_account()
@@ -62,10 +63,11 @@ class RegistrationTest extends TestCase
 
     public function test_verified_user_can_see_dashboard_page()
     {
+        $this->seed(RolePermissionTableSeeder::class);
         $this->RegisterNewUser();
         $this->assertAuthenticated();
         auth()->user()->markEmailAsVerified();
-        $response = $this->get(route('dashboard'));
+        $response = $this->get(route('dashboard.index'));
         $response->assertOk();
     }
 

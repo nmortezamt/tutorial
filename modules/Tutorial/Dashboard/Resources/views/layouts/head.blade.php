@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/panel/css/responsive_991.css" media="(max-width:991px)">
     <link rel="stylesheet" href="/panel/css/responsive_768.css" media="(max-width:768px)">
     <link rel="stylesheet" href="/panel/css/font.css">
+    <link rel="stylesheet" href="/home/css/custom.css">
     <link rel="stylesheet" href="/panel/css/css_jquery.toast.min.css">
     @yield('css')
 </head>

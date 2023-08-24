@@ -3711,8 +3711,24 @@ textarea {
     border-radius: 4px;
 }
 
+.text-success {
+    color: #00b894 !important;
+}
+
+.text-info {
+    color: #189bc3 !important;
+}
+
+.text-warning {
+    color: #e3a507 !important;
+}
+
+.text-error {
+    color: #e73368 !important;
+}
+
 .text-danger {
-    color: red;
+    color: #e73368 !important;
 }
 
 .alert-danger {

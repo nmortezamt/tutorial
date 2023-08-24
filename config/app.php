@@ -3,10 +3,17 @@
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 use Tutorial\Category\Providers\CategoryServiceProvider;
+use Tutorial\Comment\Providers\CommentServiceProvider;
+use Tutorial\Common\Providers\CommonServiceProvider;
 use Tutorial\Course\Providers\CourseServiceProvider;
 use Tutorial\Dashboard\Providers\DashboardServiceProvider;
+use Tutorial\Discount\Providers\DiscountServiceProvider;
+use Tutorial\Front\Providers\FrontServiceProvider;
 use Tutorial\Media\Providers\MediaServiceProvider;
+use Tutorial\Payment\Providers\PaymentServiceProvider;
 use Tutorial\RolePermissions\Providers\RolePermissionServiceProvider;
+use Tutorial\Slider\Providers\SlideServiceProvider;
+use Tutorial\Ticket\Providers\TicketServiceProvider;
 use Tutorial\User\Providers\UserServiceProvider;
 
 return [
@@ -162,9 +169,8 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
-        /*
-         * Package Service Providers...
-         */
+
+        Kavenegar\LaravelNotification\KavenegarServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -174,12 +180,19 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        RolePermissionServiceProvider::class,
         UserServiceProvider::class,
         DashboardServiceProvider::class,
         CategoryServiceProvider::class,
-        RolePermissionServiceProvider::class,
         CourseServiceProvider::class,
         MediaServiceProvider::class,
+        CommonServiceProvider::class,
+        FrontServiceProvider::class,
+        PaymentServiceProvider::class,
+        DiscountServiceProvider::class,
+        TicketServiceProvider::class,
+        CommentServiceProvider::class,
+        SlideServiceProvider::class,
     ])->toArray(),
 
     /*

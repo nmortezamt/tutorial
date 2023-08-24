@@ -11,7 +11,7 @@ class VerifyCodeServiceTest extends TestCase
     public function test_generated_code_is_6_digit(): void
     {
         $code = VerifyCodeService::generate();
-        $this->assertIsNumeric($code,'generated code is not numberic');
+        $this->assertIsNumeric($code,'generated code is not numeric');
         $this->assertLessThanOrEqual(999999,$code,'generated code is less than 999999');
         $this->assertGreaterThanOrEqual(100000,$code,'generated code is more than 100000');
     }

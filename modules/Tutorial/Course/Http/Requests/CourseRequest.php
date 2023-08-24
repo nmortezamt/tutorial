@@ -22,7 +22,6 @@ class CourseRequest extends FormRequest
             'priority' => 'nullable|numeric|min:0',
             'price' => 'required|numeric|min:0|max:10000000',
             'teacher_percent' => 'required|numeric|min:0|max:100',
-            'discount' => 'nullable|numeric|min:0|max:10000000',
             'teacher_id' => ['required', 'exists:users,id', new ValidTeacher()],
             'type' => ['required', Rule::in(Course::$types)],
             'status' => ['required', Rule::in(Course::$statuses)],
@@ -41,7 +40,6 @@ class CourseRequest extends FormRequest
         return [
             'price' => 'قیمت',
             'priority' => 'ردیف دوره',
-            'discount' => 'تخفیف قیمت',
             'teacher_percent' => 'درصد مدرس',
             'teacher_id' => 'مدرس',
             'category_id' => 'دسته بندی',

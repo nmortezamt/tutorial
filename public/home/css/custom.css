@@ -1,0 +1,54 @@
+.text-white{
+    color:#fff !important;
+}
+.w-100{
+    width: 100%;
+}
+.text-red{
+    color: #fb2f2f;
+}
+.text-dark{
+    color: #777 !important;
+}
+.text-blue{
+    color:#0090d7
+}
+.modal{
+    padding-top: 100px !important;
+}
+.select2{
+    width:100% !important;
+    direction: rtl;
+}
+.selection{
+    display: block !important;
+}
+.select2-search__field{
+    height: 22px !important;
+}
+textarea::placeholder{
+  font-family: irs !important;
+}
+
+
+
+.loading{
+    height: 25px;
+    position: absolute;
+    left: 5px;
+}
+
+pre{
+  font-family: irs !important;
+}
+.margin-top-6{
+    margin-top: 60px;
+}
+
+.comment_action{
+    float: left;
+    margin-top: 25px;
+}
+.status-font-size{
+    font-size: 13px;
+}
