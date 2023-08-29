@@ -1,8 +1,10 @@
 {
-    "name": "laravel/laravel",
+    "name": "nmortezamt/tutorial",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "A site to place Video tutorials.",
+    "keywords": ["laravel",
+    "tutorial",
+    "nmortezamt"],
     "license": "MIT",
     "require": {
         "php": "^8.1",
